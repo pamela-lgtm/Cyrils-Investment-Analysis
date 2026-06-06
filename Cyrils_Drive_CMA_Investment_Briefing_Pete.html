@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rental CMA & Investment Briefing — 6491 Cyrils Drive</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --teal:#008C82;--teal-deep:#046a62;--gold:#D4AF50;--gold-soft:#e7d4a0;
+    --charcoal:#1A1A1A;--ink:#2b2b2b;--ivory:#FAF7F0;--paper:#fffdf8;
+    --line:#e6dfce;--muted:#6f6a5e;--rust:#b06a3c;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{-webkit-font-smoothing:antialiased;}
+  body{
+    font-family:'Jost',sans-serif;color:var(--ink);line-height:1.62;font-weight:300;
+    background:
+      radial-gradient(1200px 600px at 80% -10%, rgba(0,140,130,.06), transparent 60%),
+      radial-gradient(900px 500px at -10% 110%, rgba(212,175,80,.08), transparent 55%),
+      var(--ivory);
+    padding:40px 20px;
+  }
+  .sheet{max-width:880px;margin:0 auto;background:var(--paper);border:1px solid var(--line);
+    box-shadow:0 30px 80px -40px rgba(26,26,26,.35);position:relative;overflow:hidden;}
+  .sheet::before{content:"";position:absolute;top:0;left:0;right:0;height:6px;
+    background:linear-gradient(90deg,var(--teal) 0%,var(--teal) 60%,var(--gold) 60%,var(--gold) 100%);}
+
+  .masthead{padding:54px 56px 30px;text-align:center;border-bottom:1px solid var(--line);}
+  .wordmark{font-family:'Playfair Display',serif;font-size:30px;letter-spacing:.16em;
+    color:var(--charcoal);font-weight:600;text-transform:uppercase;}
+  .wordmark span{color:var(--teal);}
+  .tagline{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:16px;
+    color:var(--muted);margin-top:6px;letter-spacing:.02em;}
+  .rule{width:54px;height:2px;background:var(--gold);margin:20px auto 0;}
+  .doc-type{margin-top:18px;font-size:12px;letter-spacing:.42em;text-transform:uppercase;
+    color:var(--teal-deep);font-weight:500;}
+  .doc-title{font-family:'Playfair Display',serif;font-size:25px;color:var(--charcoal);
+    font-weight:600;margin-top:8px;letter-spacing:.01em;}
+  .doc-meta{font-size:12.5px;color:var(--muted);margin-top:10px;letter-spacing:.04em;}
+  .prepared{font-size:12px;color:var(--teal-deep);margin-top:6px;letter-spacing:.08em;text-transform:uppercase;}
+
+  .body{padding:14px 56px 40px;}
+  section{padding:26px 0;border-bottom:1px solid var(--line);}
+  section:last-of-type{border-bottom:none;}
+  h2{font-family:'Playfair Display',serif;font-size:19px;color:var(--teal-deep);font-weight:600;
+    letter-spacing:.01em;margin-bottom:14px;display:flex;align-items:center;gap:12px;}
+  h2::before{content:"";width:9px;height:9px;background:var(--gold);transform:rotate(45deg);flex:none;}
+  h3{font-family:'Jost',sans-serif;font-size:12px;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--charcoal);font-weight:600;margin:18px 0 8px;}
+  p{margin-bottom:12px;font-size:14.5px;}
+  strong{font-weight:600;color:var(--charcoal);}
+  em{font-style:italic;}
+
+  .epigraph{background:rgba(0,140,130,.05);border-left:3px solid var(--teal);
+    padding:18px 22px;font-family:'Cormorant Garamond',serif;font-size:18px;line-height:1.6;
+    color:var(--charcoal);font-style:italic;}
+  .epigraph small{display:block;font-family:'Jost',sans-serif;font-style:normal;font-size:11px;
+    letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-top:10px;}
+
+  .subject{display:grid;grid-template-columns:1.3fr 1fr;border:1px solid var(--line);background:#fff;}
+  .subject .left{padding:22px 24px;border-right:1px solid var(--line);}
+  .subject .addr{font-family:'Playfair Display',serif;font-size:21px;color:var(--charcoal);
+    font-weight:600;line-height:1.25;}
+  .subject .loc{font-size:13px;color:var(--muted);margin-top:6px;letter-spacing:.03em;}
+  .badge{display:inline-block;margin-top:12px;margin-right:6px;padding:4px 11px;
+    background:rgba(0,140,130,.08);color:var(--teal-deep);border:1px solid rgba(0,140,130,.25);
+    font-size:10px;letter-spacing:.14em;text-transform:uppercase;font-weight:500;}
+  .badge.warn{background:rgba(176,106,60,.1);color:var(--rust);border-color:rgba(176,106,60,.3);}
+  .specs{padding:20px 24px;display:grid;grid-template-columns:1fr 1fr;gap:14px 12px;align-content:center;}
+  .spec .n{font-family:'Playfair Display',serif;font-size:20px;color:var(--teal);font-weight:600;}
+  .spec .l{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-top:2px;}
+
+  .reco{background:linear-gradient(135deg,var(--teal) 0%,var(--teal-deep) 100%);color:#fff;
+    padding:28px 30px;display:grid;grid-template-columns:auto 1fr;gap:26px;align-items:center;
+    position:relative;overflow:hidden;}
+  .reco::after{content:"";position:absolute;right:-40px;top:-40px;width:160px;height:160px;
+    border:1px solid rgba(212,175,80,.4);transform:rotate(45deg);}
+  .reco .price{font-family:'Playfair Display',serif;font-size:44px;font-weight:700;line-height:1;color:#fff;}
+  .reco .price small{display:block;font-size:11px;font-weight:400;letter-spacing:.2em;
+    text-transform:uppercase;color:var(--gold-soft);margin-top:8px;font-family:'Jost',sans-serif;}
+  .reco .detail{font-size:13.5px;line-height:1.65;color:rgba(255,255,255,.92);}
+  .reco .detail b{color:var(--gold-soft);font-weight:600;}
+
+  .pill-row{display:flex;border:1px solid var(--line);}
+  .pill{flex:1;text-align:center;padding:15px 8px;border-right:1px solid var(--line);background:#fff;}
+  .pill:last-child{border-right:none;}
+  .pill .v{font-family:'Playfair Display',serif;font-size:18px;color:var(--charcoal);font-weight:600;}
+  .pill .k{font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-top:3px;}
+
+  table{width:100%;border-collapse:collapse;font-size:12.5px;margin-top:4px;}
+  thead th{background:var(--charcoal);color:#fff;font-weight:500;padding:9px 8px;text-align:left;
+    font-size:10px;letter-spacing:.05em;text-transform:uppercase;}
+  thead th.num{text-align:right;}
+  tbody td{padding:8px;border-bottom:1px solid var(--line);color:var(--ink);}
+  tbody td.num{text-align:right;font-variant-numeric:tabular-nums;}
+  tbody tr:nth-child(even){background:#faf8f2;}
+  .hi{color:var(--teal-deep);font-weight:600;}
+  .key-row{background:rgba(212,175,80,.14)!important;}
+  .key-row td{font-weight:500;}
+  .tag{font-size:9.5px;color:var(--muted);}
+  caption{caption-side:bottom;text-align:left;font-size:11px;color:var(--muted);margin-top:8px;font-style:italic;}
+
+  .geo-bar{display:flex;flex-direction:column;gap:6px;margin-top:6px;}
+  .geo-item{display:grid;grid-template-columns:220px 1fr 96px;align-items:center;gap:12px;font-size:12.5px;}
+  .geo-item .name{color:var(--ink);}
+  .track{height:7px;background:#efe9da;border-radius:6px;overflow:hidden;}
+  .track i{display:block;height:100%;background:linear-gradient(90deg,var(--teal),var(--gold));border-radius:6px;}
+  .geo-item .mi{text-align:right;font-variant-numeric:tabular-nums;color:var(--teal-deep);font-weight:600;font-size:11.5px;}
+
+  .twocol{display:grid;grid-template-columns:1fr 1fr;gap:26px;}
+  .card{border:1px solid var(--line);background:#fff;padding:18px 20px;}
+  .card.pro{border-top:3px solid var(--teal);}
+  .card.con{border-top:3px solid var(--rust);}
+  .card h4{font-family:'Playfair Display',serif;font-size:15px;margin-bottom:10px;}
+  .card.pro h4{color:var(--teal-deep);}
+  .card.con h4{color:var(--rust);}
+  ul.clean{list-style:none;}
+  ul.clean li{padding:6px 0 6px 20px;position:relative;font-size:13px;line-height:1.5;}
+  ul.clean li::before{content:"";position:absolute;left:0;top:11px;width:6px;height:6px;transform:rotate(45deg);}
+  .card.pro ul.clean li::before{background:var(--teal);}
+  .card.con ul.clean li::before{background:var(--rust);}
+
+  .econ{width:100%;border-collapse:collapse;font-size:13px;margin-top:4px;}
+  .econ td{padding:8px 6px;border-bottom:1px solid var(--line);}
+  .econ td.r{text-align:right;font-variant-numeric:tabular-nums;}
+  .econ tr.tot td{border-top:2px solid var(--charcoal);border-bottom:none;font-weight:600;
+    color:var(--charcoal);padding-top:11px;}
+  .econ tr.sub td{color:var(--muted);}
+
+  .callout{background:rgba(212,175,80,.09);border-left:3px solid var(--gold);padding:18px 22px;
+    font-family:'Cormorant Garamond',serif;font-size:17px;line-height:1.6;color:var(--charcoal);font-style:italic;}
+
+  .infra-item{padding:12px 0;border-bottom:1px dashed var(--line);}
+  .infra-item:last-child{border-bottom:none;}
+  .infra-item .t{font-weight:600;color:var(--charcoal);font-size:14px;}
+  .infra-item .d{font-size:13px;color:var(--ink);margin-top:3px;}
+
+  footer{background:var(--charcoal);color:#cfcabd;padding:30px 56px;font-size:11.5px;line-height:1.7;}
+  footer .sig{font-family:'Playfair Display',serif;font-size:18px;color:#fff;margin-bottom:2px;}
+  footer .sig span{color:var(--gold);}
+  footer .role{color:var(--gold-soft);font-size:12px;letter-spacing:.04em;margin-bottom:14px;}
+  footer .disclaimer{color:#8d887c;font-size:10.5px;border-top:1px solid #333;padding-top:14px;margin-top:14px;}
+
+  @media(max-width:700px){
+    .body,.masthead,footer{padding-left:22px;padding-right:22px;}
+    .subject,.twocol{grid-template-columns:1fr;}
+    .subject .left{border-right:none;border-bottom:1px solid var(--line);}
+    .reco{grid-template-columns:1fr;gap:14px;}
+    .geo-item{grid-template-columns:120px 1fr 80px;}
+  }
+  @media print{
+    body{background:#fff;padding:0;}
+    .sheet{box-shadow:none;border:none;max-width:100%;}
+    .reco,thead th,footer,.card.pro,.card.con{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+    section{page-break-inside:avoid;}
+  }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="masthead">
+    <div class="wordmark">Verandah <span>Properties</span></div>
+    <div class="tagline">Curating Lake Nona's Finest Rental Portfolio</div>
+    <div class="rule"></div>
+    <div class="doc-type">Rental CMA &amp; Investment Briefing</div>
+    <div class="doc-title">6491 Cyrils Drive, St. Cloud</div>
+    <div class="doc-meta">Weslyn Park · Sunbridge — St. Cloud, FL 34771 &nbsp;•&nbsp; June 6, 2026</div>
+    <div class="prepared">Prepared for Pete Patel — All-Cash, Appreciation-Focused</div>
+  </div>
+
+  <div class="body">
+
+    <section>
+      <h2>Engagement Overview</h2>
+      <div class="epigraph">
+        "Can you research a property located on Cyrils Drive, St. Cloud — how close the Lake Nona
+        restaurants are, how close to the airport, whether there's a highway extension coming, and
+        the advantages and negatives of buying it?"
+        <small>— The questions behind this briefing</small>
+      </div>
+      <p style="margin-top:14px;">
+        This document consolidates today's full research on <strong>6491 Cyrils Drive</strong> — a
+        concrete rental CMA drawn from Weslyn Park lease comparables, the property's proximity to Lake
+        Nona dining and Orlando International Airport, the major roadway projects planned for the area,
+        and an investment read calibrated to Pete's stated objective: <strong>long-term appreciation,
+        purchased in cash.</strong>
+      </p>
+    </section>
+
+    <section>
+      <h2>Subject Property</h2>
+      <div class="subject">
+        <div class="left">
+          <div class="addr">6491 Cyrils Drive</div>
+          <div class="loc">Weslyn Park (Sunbridge) — St. Cloud, FL 34771 · MLS O6401147</div>
+          <span class="badge">Townhome · Built 2023</span>
+          <span class="badge">Owned Solar</span>
+          <span class="badge">Flood Zone X</span>
+          <span class="badge warn">Status: Pending (6/5/26)</span>
+        </div>
+        <div class="specs">
+          <div class="spec"><div class="n">3</div><div class="l">Bedrooms</div></div>
+          <div class="spec"><div class="n">3</div><div class="l">Full Baths</div></div>
+          <div class="spec"><div class="n">1,855</div><div class="l">Heated Sq Ft</div></div>
+          <div class="spec"><div class="n">$300K</div><div class="l">List Price</div></div>
+        </div>
+      </div>
+      <p style="margin-top:14px;font-size:13px;color:var(--muted);">
+        2-car rear/alley garage · 2,178 total sq ft · paid-off solar (~$30/mo electric) ·
+        HOA $443/mo · CDD community · 2025 taxes $6,555 (non-homestead). <strong style="color:var(--rust);">Note:</strong>
+        the listing is under contract as of 6/5/26 with a target close of 7/31/26 — this is a backup-offer
+        situation unless the pending deal falls through during inspections.
+      </p>
+    </section>
+
+    <section>
+      <h2>Rental CMA — Recommended Rent</h2>
+      <div class="reco">
+        <div><div class="price">$2,475<small>Recommended List Rent</small></div></div>
+        <div class="detail">
+          A realistic <b>lease range of $2,425–$2,500</b> with a defensible floor of <b>$2,425</b>.
+          The Weslyn Park market is highly efficient — <b>every leased comp closed at 100% of asking</b> —
+          so pricing accurately matters more than leaving room to negotiate. The subject's <b>three full
+          baths</b> (vs. the typical 2.5) justify a step above the identically-sized size-match comp.
+        </div>
+      </div>
+      <div class="pill-row">
+        <div class="pill"><div class="v">$2,300–$2,500</div><div class="k">Leased Range</div></div>
+        <div class="pill"><div class="v">$2,400</div><div class="k">Leased Median</div></div>
+        <div class="pill"><div class="v">100%</div><div class="k">Leased / Asking</div></div>
+        <div class="pill"><div class="v">$2,400–$2,500</div><div class="k">Active Asking</div></div>
+      </div>
+
+      <h3>Leased Comparables — Weslyn Park</h3>
+      <table>
+        <thead>
+          <tr><th>Address</th><th>Phase</th><th class="num">Yr</th><th class="num">Sq Ft</th>
+          <th class="num">Leased</th><th class="num">L/L</th><th class="num">Date</th><th class="num">DOM</th></tr>
+        </thead>
+        <tbody>
+          <tr class="key-row"><td>6403 Cyrils Dr <span class="tag">★ same street</span></td><td>Ph 1</td><td class="num">2023</td><td class="num">1,738</td><td class="num">$2,300</td><td class="num">100%</td><td class="num">04/24/26</td><td class="num">11</td></tr>
+          <tr class="key-row"><td>2928 Voyager Ave <span class="tag">★ size match</span></td><td>Ph 1</td><td class="num">2023</td><td class="num">1,854</td><td class="num">$2,400</td><td class="num">100%</td><td class="num">04/29/26</td><td class="num">36</td></tr>
+          <tr><td>6494 Rover Way <span class="tag">ceiling</span></td><td>Ph 2</td><td class="num">2023</td><td class="num">1,881</td><td class="num hi">$2,500</td><td class="num">100%</td><td class="num">03/01/26</td><td class="num">50</td></tr>
+        </tbody>
+      </table>
+      <caption>3 leased comps · avg $2,400 · all closed at full asking. Source: Stellar MLS via CoreLogic, 6/6/2026.</caption>
+
+      <h3>Active Competition</h3>
+      <table>
+        <thead>
+          <tr><th>Address</th><th>Phase</th><th class="num">Yr</th><th class="num">Sq Ft</th><th class="num">Asking</th><th class="num">DOM</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>6467 Trailblaze Bnd</td><td>Ph 2</td><td class="num">2024</td><td class="num">1,738</td><td class="num">$2,500</td><td class="num">10</td></tr>
+          <tr><td>2953 Voyager Ave</td><td>Ph 1</td><td class="num">2023</td><td class="num">1,854</td><td class="num">$2,400</td><td class="num">19</td></tr>
+          <tr><td>6479 Trailblaze Bnd</td><td>Ph 2</td><td class="num">2024</td><td class="num">1,738</td><td class="num">$2,350</td><td class="num">37</td></tr>
+        </tbody>
+      </table>
+      <caption>The size-appropriate peers (1,854–1,881 sq ft) cluster at $2,400–$2,500.</caption>
+
+      <p style="margin-top:14px;">
+        <strong>Reading the comps:</strong> with the same-street 6451 Cyrils outlier set aside — it leased
+        at $2,250, but only after <strong>141 days</strong>, marking it as a stale, mispriced listing rather
+        than a true read on value — the set tightens cleanly to $2,300–$2,500. The identically-sized
+        <strong>2928 Voyager Ave</strong> (1,854 sq ft) leased at <strong>$2,400</strong>, and the slightly
+        larger <strong>6494 Rover Way</strong> (1,881 sq ft) reached the <strong>$2,500</strong> ceiling.
+        The subject matches Voyager on size but carries a third full bath, supporting a step above it —
+        landing at a recommended <strong>$2,475</strong>, with $2,500 reachable in a strong window.
+      </p>
+    </section>
+
+    <section>
+      <h2>Location &amp; Proximity</h2>
+      <p>Cyrils Drive sits on the southeastern edge of the Narcoossee corridor — close to, but just
+      outside, Lake Nona proper. Straight-line distances with rough drive estimates:</p>
+      <div class="geo-bar">
+        <div class="geo-item"><span class="name">Talkin' Tacos — S. Narcoossee dining</span><span class="track"><i style="width:38%"></i></span><span class="mi">3.4 mi · ~10 min</span></div>
+        <div class="geo-item"><span class="name">Lake Nona Town Center (Boxi Park)</span><span class="track"><i style="width:62%"></i></span><span class="mi">5.6 mi · ~14 min</span></div>
+        <div class="geo-item"><span class="name">Nando Grill / Azteca — mid-Narcoossee</span><span class="track"><i style="width:66%"></i></span><span class="mi">5.9 mi · ~16 min</span></div>
+        <div class="geo-item"><span class="name">Nona Blue — Lake Nona Village</span><span class="track"><i style="width:79%"></i></span><span class="mi">7.1 mi · ~18 min</span></div>
+        <div class="geo-item"><span class="name">Orlando Int'l Airport (MCO)</span><span class="track"><i style="width:100%"></i></span><span class="mi">~9 mi · ~20 min</span></div>
+      </div>
+      <p style="margin-top:12px;font-size:13px;color:var(--muted);">
+        Bars scaled against the ~9-mile MCO distance. Strong airport access is a genuine draw for medical,
+        hospitality, and traveling-professional tenants. Drive times are estimated from road geometry, not
+        live traffic — Narcoossee can slow at peak hours.
+      </p>
+    </section>
+
+    <section>
+      <h2>Infrastructure Outlook</h2>
+      <p>Three significant roadway projects are planned or underway in the immediate area — meaningful
+      tailwinds for an appreciation thesis, with near-term construction as the trade-off:</p>
+      <div class="infra-item">
+        <div class="t">SR 534 — the "Narcoossee Reliever" (CFX)</div>
+        <div class="d">A planned 14-mile limited-access toll road from SR 417 near Boggy Creek Rd to Nova Rd,
+        explicitly designed to improve airport connectivity and relieve congestion on Narcoossee, Boggy
+        Creek, and <strong>Cyrils Drive</strong>. Currently in design.</div>
+      </div>
+      <div class="infra-item">
+        <div class="t">Sunbridge Parkway Extension (Osceola County)</div>
+        <div class="d">A ~$255M, 15–20-mile four-lane road adding a second north-south connection into
+        St. Cloud, serving the 27,000-acre Sunbridge community (7,000+ planned homes) — which includes
+        Weslyn Park — and Harmony West.</div>
+      </div>
+      <div class="infra-item">
+        <div class="t">Cyrils Drive Widening (underway)</div>
+        <div class="d">The subject street is being widened from two to four lanes between Narcoossee and
+        Absher Rd, with sidewalks and bike accommodations. Construction began spring 2024; the first three
+        phases within Sunbridge are complete.</div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Investment Read — Appreciation Lens</h2>
+      <p>Weighed against Pete's goal of <strong>appreciation with an all-cash purchase</strong>, the
+      picture is more favorable than a yield-first read would suggest. With no mortgage, the heavy carrying
+      costs are a manageable expense rather than a return-killer, and he can hold comfortably through the
+      build-out.</p>
+      <div class="twocol">
+        <div class="card pro">
+          <h4>Working in Pete's Favor</h4>
+          <ul class="clean">
+            <li>Entry ~$100K below the April 2024 sale price ($399,900 → ~$300K) — buying near a cyclical low.</li>
+            <li>Early position in a Tavistock master-planned community (the Lake Nona developer) before full build-out and amenity maturity.</li>
+            <li>Three roadway catalysts — SR 534, Sunbridge Parkway, Cyrils widening — classic appreciation drivers.</li>
+            <li>All-cash means no interest drag while waiting; he can hold patiently.</li>
+            <li>2023 build + Flood Zone X — low capex risk, no flood-insurance drag.</li>
+            <li>Strong airport / Medical City proximity underpins rental demand during the hold.</li>
+          </ul>
+        </div>
+        <div class="card con">
+          <h4>Cautions for Appreciation</h4>
+          <ul class="clean">
+            <li>In an active build-out, resale competes with new builder inventory and incentives.</li>
+            <li>Non-homestead taxes likely reassess upward, raising carry.</li>
+            <li>Property is pending — backup-offer only right now.</li>
+            <li>SR 534's exact routing near the community should be confirmed.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Hold Economics — Does It Carry Itself?</h2>
+      <p>Modeled all-cash at a $300K purchase, rented at a conservative $2,450/mo during the appreciation hold:</p>
+      <table class="econ">
+        <tr><td>Gross annual rent ($2,450/mo)</td><td class="r">$29,400</td></tr>
+        <tr class="sub"><td>Less: HOA ($443/mo)</td><td class="r">($5,316)</td></tr>
+        <tr class="sub"><td>Less: Taxes (2025, incl. CDD assessment)</td><td class="r">($6,555)</td></tr>
+        <tr class="sub"><td>Less: Landlord insurance (est.)</td><td class="r">($1,200)</td></tr>
+        <tr class="sub"><td>Less: Management @ 8%</td><td class="r">($2,352)</td></tr>
+        <tr class="sub"><td>Less: Maintenance + vacancy reserve (~8%)</td><td class="r">($2,352)</td></tr>
+        <tr class="tot"><td>Net Operating Income</td><td class="r">≈ $11,600 / yr</td></tr>
+        <tr class="tot" style="border-top:none;"><td>Monthly net &nbsp;·&nbsp; Cash-on-cash (~$306K all-in)</td><td class="r">≈ $965/mo &nbsp;·&nbsp; ~3.8%</td></tr>
+      </table>
+      <p style="margin-top:14px;">
+        The takeaway isn't the ~3.8% yield — that's not Pete's objective. It's that <strong>the rent fully
+        covers the carrying costs and still throws off roughly $965/month</strong>, so the asset sustains
+        itself while he waits for appreciation. He isn't bleeding money to hold it. That's the right
+        structure for a patient, cash-funded appreciation bet.
+      </p>
+    </section>
+
+    <section>
+      <h2>Bottom Line</h2>
+      <div class="callout">
+        For an all-cash buyer playing appreciation, this is a genuine win. Pete is acquiring a 2023-built
+        home in a Tavistock growth community for <em>under his $300,000 budget</em> — and at that price, in
+        this area, that alone is the headline. The seller bought closer to the peak and, squeezed by builder
+        rate buydowns and severe new-construction competition, simply couldn't sell and now wants out; their
+        loss becomes Pete's entry advantage. He gets an early, below-peak position with real infrastructure
+        tailwinds, and a rent that fully carries the property while it appreciates. Even the CDD works in
+        his favor — it funds the resort-style amenities (pool, clubhouse, parks, and trails) that renters
+        actively seek, supporting both occupancy and rent. The one practical move: it's pending, so a
+        backup offer is the play.
+      </div>
+    </section>
+
+  </div>
+
+  <footer>
+    <div class="sig">Pamela <span>Syvertson</span></div>
+    <div class="role">Owner &amp; Broker — Verandah Properties LLC</div>
+    Curating Lake Nona's Finest Rental Portfolio &nbsp;•&nbsp; Relationships, not transactions.
+    <div class="disclaimer">
+      This is an opinion of value / Comparative Market Analysis and should not be considered an appraisal,
+      and it is not formal investment, tax, or financial advice. Rental figures are estimates based on
+      current Stellar MLS lease comparables (via CoreLogic) as of June 6, 2026; carrying-cost figures are
+      drawn from the MLS listing and may vary — the CDD assessment may already be reflected within the
+      stated property taxes and should be verified. Drive times and distances are approximate. The
+      prospective buyer should confirm all figures, the 1031 exchange implications, and tax reassessment
+      with their CPA and qualified professionals before relying on this analysis.
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>
